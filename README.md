@@ -40,6 +40,27 @@ La planilla tiene 4 pestañas:
 Todo esto se gestiona desde el panel `/admin`, no hace falta tocar la planilla
 directamente (aunque se puede, es una planilla comun).
 
+## Probar la app sin Google Sheets (modo demo)
+
+Para ver la app funcionando sin configurar nada de Google:
+
+```bash
+npm install
+cp .env.example .env.local
+```
+
+En `.env.local` dejar `DEMO_MODE=true` y completar `ADMIN_PASSWORD` y
+`SESSION_SECRET` con cualquier valor. Despues:
+
+```bash
+npm run dev
+```
+
+La app arranca con datos de ejemplo (horarios de una peluqueria y un par de
+turnos ya cargados) guardados en memoria, sin tocar Google Sheets. Sirve para
+probar el flujo de reserva y el panel de admin antes de conectar la planilla
+real. **No usar en produccion**: los datos se pierden al reiniciar el server.
+
 ## Puesta en marcha para un cliente nuevo
 
 ### 1. Crear la planilla de Google Sheets
